@@ -33,15 +33,21 @@
   animation: hovered-sellcard 1s ease 0.1s 1 normal  forwards;
 }
 
+.zoomin-img-sellcard {
+  animation: hovered-sellcard-img 1.4s ease 0.1s 1 normal  forwards;
+}
+
+@keyframes hovered-sellcard-img {
+  from {
+    scale: 1;
+  } to {
+    scale: 1.15;
+  }
+}
 @keyframes hovered-sellcard {
   0% {
 	opacity: 0;
   }
-
-  50% {
-	opacity: 0.2;
-  }
-
   100% {
 	opacity: 0.5;
   }

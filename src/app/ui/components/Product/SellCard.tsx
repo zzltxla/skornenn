@@ -38,7 +38,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
     switch (variant) {
         case "hovered":
         return (
-            <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem]"
+            <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem] hover:cursor-pointer"
             onMouseEnter={ () => handleVariantChange("hovered")}
             onMouseLeave={ () => handleVariantChange("not-hovered")}
             >
@@ -62,7 +62,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                             src="/img/cidre-orange-product.webp"
                             alt="Canette de cidre à l'orange"
                             layout="fill"
-                            className="mb-[0.62rem] w-full relative object-contain pt-[1.5rem] z-10"
+                            className="mb-[0.62rem] w-full relative object-contain pt-[1.5rem] z-10 zoomin-img-sellcard"
                             />
                             <div className="left-0 top-[1.85625rem] z-5 absolute w-[25.5rem]">
                                 <Typo
@@ -130,7 +130,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
         case "not-hovered": 
         return (
 
-            <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem]" 
+            <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem] hover:cursor-pointer" 
             onMouseEnter={ () => handleVariantChange("hovered")}
             onMouseLeave={ () => handleVariantChange("not-hovered")}
             >
@@ -147,7 +147,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                         src="/img/cidre-orange-product.webp"
                         alt="Canette de cidre à l'orange"
                         layout="fill"
-                        className="mb-[0.62rem] w-full relative object-contain pt-[1.5rem] z-10"
+                        className="mb-[0.62rem] w-full relative object-contain pt-[1.5rem] z-10 "
                         />
                         <div className="left-0 top-[1.85625rem] z-5 absolute w-[25.5rem]">
                             <Typo
