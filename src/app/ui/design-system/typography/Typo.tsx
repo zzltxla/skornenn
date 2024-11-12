@@ -3,7 +3,7 @@ import { Children } from "react";
 
 interface Props {
     variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span" | "bg-text";
-    color?: "primary" | "white" | "lightblue" | "midgray" | "primary20";
+    color?: "primary" | "white" | "lightblue" | "primary20" | "gray" | "midgray";
     font?: "noto";
     className?: string;
     children?: React.ReactNode;
@@ -83,7 +83,7 @@ export const Typo = ({
         case "bg-text":
             return (
                 <p
-                className="uppercase bg-text-clamp break-words text-left "
+                className="uppercase bg-text-clamp text-left font-noto font-bold leading-[100%] text-primary20"
                 >
                     {children}
                 </p>

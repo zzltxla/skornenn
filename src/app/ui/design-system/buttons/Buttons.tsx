@@ -8,7 +8,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export const Buttons = ({
+export const Button = ({
     className,
     variant,
     children,
@@ -16,20 +16,17 @@ export const Buttons = ({
     switch (variant) {
         case "primary":
         return (
-            <button className="flex items-center justify-center bg-transparent border-0 border-white border-solid rounded-[0.19rem] w-fit h-fit px-[5rem] py-[0.5rem] text-white text-center 
-            transition-all duration-800 ease-out delay-100
-            group-hover:bg-white group-hover:text-primary group-hover:shadow-button-shadow-hover
-            ">
+            <button className={clsx("flex items-center justify-center bg-transparent border-[1px] border-white border-solid rounded-[0.19rem] w-fit h-fit px-[5rem] py-[0.5rem] text-white text-center transition-all duration-800 ease-out delay-100", className,
+            "hover:bg-white hover:text-primary hover:shadow-button-shadow-hover")}>
                 {children}
             </button>
         );
 
         case "secondary":
         return (
-            <button className="flex items-center justify-center bg-transparent border-0 border-primary border-solid rounded-[0.19rem] w-fit h-fit px-[5rem] py-[0.5rem] text-primary text-center 
-            transition-all duration-800 ease-out delay-100
-            group-hover:bg-primary group-hover:text-white group-hover:shadow-button-shadow-hover group-hover:backdrop-blur-[2px] 
-            ">
+            <button className={clsx("flex items-center justify-center bg-transparent border-[1px] border-primary border-solid rounded-[0.19rem] w-fit h-fit px-[5rem] py-[0.5rem] text-primary text-center transition-all duration-800 ease-out delay-100", className,
+            "hover:bg-primary hover:text-white hover:shadow-button-shadow-hover hover:backdrop-blur-[2px]" )}
+            >
                 {children}
             </button>
         );

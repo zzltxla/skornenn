@@ -93,12 +93,15 @@ const config: Config = {
         "linear-gradient(0deg, #FFFFF20 0%, #FFFFFF 20%)",
         "radial-white-sellcard": 
         "radial-gradient(circle, rgba(255,255,255,1) 51%, rgba(255,255,255,0.20351890756302526) 100%)",
+        "sellcard-background": "url('/public/img/sellcard-background.webp') lightgray 50% / cover no-repeat, #FFF"
       
       },
       boxShadow: {
         "button-shadow-hover": "0px 0px 30px 7px rgba(144, 235, 253, 0.80)",
         "sellcard-boxshadow": "-1px 4px 20px 0px rgba(108, 131, 154, 0.20);",
-        "header-white-inner": "0px 62px 46px -18px rgba(255,255,255,1) inset",
+        "sellcard-boxshadow-hover": "-1px 4px 20px 0px rgba(135, 206, 250, 0.50)",
+        "header-white-inner": "0px 62px 40px -18px rgba(255,255,255,1) inset",
+        "home-products-white": "1px -43px 49px 1px rgba(255,255,255,1)"
       }
     },
   },
