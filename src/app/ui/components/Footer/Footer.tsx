@@ -10,7 +10,7 @@ import { InstagramIcon } from "../../design-system/svg/InstagramIcon";
 
 export const Footer = ({}) => {
     return (
-        <footer className="w-full h-fit pt-[5rem] pb-[7.5rem]  bg-footer-radial-img flex flex-col items-center justify-center">
+        <footer className="w-full h-fit pt-[5rem] pb-[7.5rem] bg-white bg-[url('../public/img/panoramic-snowy-view-placeholder.webp') no-reapeat left top, radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%)] flex flex-col items-center justify-center">
             <div className="text-center flex flex-col items-center justify-center gap-[1.25rem] mb-[2.5rem]">
                 <SkornennLogo
                 className="w-[18.75rem] h-[4.288rem]"/>

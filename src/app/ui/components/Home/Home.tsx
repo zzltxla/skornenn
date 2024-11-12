@@ -6,7 +6,12 @@ import { Footer } from "../Footer/Footer";
 export default function Home () {
     return (
         <main>
-            <Header variant="no-logo"/>
+            <Header variant="logo"/>
+            <div>
+                <video autoPlay loop muted>
+                    <source src="/video/header-video.mp4"/>
+                </video>
+            </div>
             <SellCard></SellCard>
             <Footer></Footer>
         </main>

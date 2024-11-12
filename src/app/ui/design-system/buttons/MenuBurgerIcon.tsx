@@ -4,7 +4,7 @@ interface Props {
 
 export function MenuLine () {
     return (
-        <div className="w-[2.125rem] h-[3px] bg-black ">
+        <div className="w-[1.125rem] h-[2px] bg-black ">
         </div>
     )
 }
@@ -12,7 +12,7 @@ export function MenuLine () {
 export const MenuBurgerIcon = ({className}:Props) => {
     return (
         <button 
-        className="bg-none flex flex-col gap-[1rem] items-center justify-center">
+        className="bg-none flex flex-col gap-[0.31rem] items-center justify-center w-fit h-fit">
             <MenuLine/>
             <MenuLine/>
             <MenuLine/>

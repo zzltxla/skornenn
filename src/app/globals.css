@@ -7,6 +7,30 @@
   --foreground: #171717;
 }
 
+@layer base {
+  @font-face {
+    font-family: "Noto Serif JP";
+    font-display: swap;
+    src: url("/font/Noto\ Serif\ JP\ Variable\ Font.woff2") format('woff2');
+  }
+}
+
+.bg-text-clamp {
+  font-size: clamp(1.875rem, 0.8333rem + 4.6296vw, 5rem);
+}
+
+.h1-clamp {
+  font-size: clamp(1.25rem, 0.8333rem + 1.8519vw, 2.5rem);
+}
+
+.h2-clamp {
+  font-size: clamp(1.5rem, 1.375rem + 0.5556vw, 1.875rem);
+}
+
+.h3-clamp {
+  font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
