@@ -7,31 +7,59 @@ import { VectorForest } from "../../design-system/svg/VectorForest";
 import { VectorIce } from "../../design-system/svg/VectorIce";
 import { Button } from "../../design-system/buttons/Buttons";
 import { Footer } from "../Footer/Footer";
-import { useInsertionEffect } from "react";
-useInsertionEffect
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
+
+    const [isSection, setIsInSection] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+
+            const section = document.getElementById("product-section-one");
+
+            if (section) {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
     
+                if (sectionTop <= windowHeight / 2) {
+                    setIsInSection(true);
+                } else {
+                    setIsInSection(false);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
 
     return (
         <main>
             <Header variant="logo" />
-            <div className="relative -z-[5] h-screen w-screen ">
-                <div className="h-full w-full -z-[5] flex flex-col items-center justify-center">
-                    <div className="w-full h-[100%] fixed  top-100 inset-x-0 ">
-                        <Image
-                            src="/img/frozen-lake-snow-placeholder.webp"
-                            alt="lac glacier"
-                            layout="fill"
-                            className="brightness-50 h-full w-full "
-                        />
-                    </div>
-                    <div className="absolute">
-                        <video autoPlay muted width={1440} height={900}
-                            className="brightness-50 shadow-home-video-inset fixed inset-0 w-full "
-                        >
-                            <source src="/video/header-video.mp4" type="video/mp4" />
-                        </video>
+            <div className="relative -z-[3] h-screen w-screen mb-[1rem] overflow-y-scroll">
+                <div className="h-[50%] w-full -z-[1] ">
+                    <div className="sticky">
+                        {isSection ? (
+                            <div className="w-full h-[100%] fixed  top-100 inset-x-0 ">
+                                <Image
+                                    src="/img/frozen-lake-snow-placeholder.webp"
+                                    alt="lac glacier"
+                                    layout="fill"
+                                    className="brightness-50 h-full w-full "
+                                />
+                            </div>
+                        ) : (
+                            <div className="absolute">
+                                <video autoPlay muted width={1440} height={900}
+                                    className="brightness-50 shadow-home-video-inset fixed inset-0 w-full "
+                                >
+                                    <source src="/video/header-video.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="absolute z-10 inset-x-0  bottom-[16%] flex flex-col items-center w-full">
@@ -59,7 +87,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <section className="bg-home-product-gradient shadow-home-products-white sticky w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]">
+            <section className="bg-home-product-gradient shadow-home-products-white sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
+            >
                 <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-5.62rem py-[5rem] px-[6.25rem]" id="product-section-one">
                     <SellCard></SellCard>
                     <SellCard></SellCard>
@@ -69,13 +98,14 @@ export default function Home() {
                     <SellCard></SellCard>
                 </div>
             </section>
-            <div className="h-fit absolute z-[6] shadow-vector-shadow">
+            <div className="h-fit absolute z-[20] shadow-vector-shadow">
                 <VectorForest
                     className="w-full shadow-vector-shadow "
                 />
             </div>
-            <div className="relative h-full">
-                <section className="relative z-10 w-full h-fit py-[11.25rem] px-[6.25rem]">
+            <div className="sticky w-full h-full -z-[1]">
+                <section className="relative w-full h-fit py-[11.25rem] px-[6.25rem]">
+
                     <div className="w-[38.8rem] h-fit flex flex-col mr-auto">
                         <Typo
                             variant="h1"
