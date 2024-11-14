@@ -78,6 +78,10 @@ const config: Config = {
           DEFAULT: "#00284D",
         }
       },
+      brightness: {
+        25: ".25",
+        30: ".30",
+      },  
       borderRadius: {
         DEFAULT: "2px",
         full: "9999px",
@@ -101,8 +105,8 @@ const config: Config = {
         "sellcard-boxshadow": "-1px 4px 20px 0px rgba(108, 131, 154, 0.20);",
         "sellcard-boxshadow-hover": "-1px 4px 20px 0px rgba(135, 206, 250, 0.50)",
         "header-white-inner": "0px 62px 40px -18px rgba(255,255,255,1) inset",
-        "home-products-white": "1px -43px 49px 1px rgba(255,255,255,1)",
-        "vector-shadow": "-1px -92px 53px 36px rgba(255,255,255,1)"
+        "home-products-white": "1px -92px 49px 36px rgba(255,255,255,1)",
+        "vector-shadow": "-1px -62px 53px 26px rgba(255,255,255,1)"
       }
     },
   },

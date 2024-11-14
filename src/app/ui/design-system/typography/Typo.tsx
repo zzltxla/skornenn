@@ -3,7 +3,6 @@ import { Children } from "react";
 
 interface Props {
     variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span" | "bg-text";
-    color?: "primary" | "white" | "lightblue" | "primary20" | "gray" | "midgray";
     font?: "noto";
     className?: string;
     children?: React.ReactNode;
@@ -11,7 +10,6 @@ interface Props {
 
 export const Typo = ({
     variant = "p",
-    color,
     font = "noto",
     className,
     children,
@@ -23,7 +21,6 @@ export const Typo = ({
                     className={clsx(
                         `font-${font} h1-clamp tracking-widest`,
                         className,
-                        `text-${color}`
                     )}
                 >
                     {children}
@@ -35,7 +32,6 @@ export const Typo = ({
                     className={clsx(
                         `font-${font} h2-clamp tracking-widest`,
                         className,
-                        `text-${color}`
                     )}
                 >
                     {children}
@@ -47,7 +43,6 @@ export const Typo = ({
                     className={clsx(
                         `font-${font} h3-clamp tracking-widest`,
                         className,
-                        `text-${color}`
                     )}
                 >
                     {children}
@@ -58,7 +53,6 @@ export const Typo = ({
                 <h4
                     className={clsx(
                         `font-${font} font-[1rem] tracking-normal`, className,
-                        `text-${color}`
                     )}
                 >
                     {children}
@@ -69,7 +63,6 @@ export const Typo = ({
                 <p
                     className={clsx(
                         `font-${font} font-[0.938rem] tracking-normal`, className,
-                        `text-${color}`
                     )}
                 >
                     {children}
@@ -77,7 +70,7 @@ export const Typo = ({
             );
         case "span":
         return (
-            <span className={clsx(className, `text-${color}`)}>{children}</span>
+            <span className={clsx(className)}>{children}</span>
         );
 
         case "bg-text":

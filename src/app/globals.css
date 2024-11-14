@@ -37,6 +37,78 @@
   animation: hovered-sellcard-img 1.4s ease 0.1s 1 normal  forwards;
 }
 
+.title-section-before-after {
+  &:before {
+    content: "";
+    width: 29.875rem;
+    height: 0.0625rem;
+    background-color: #6C839A;
+  }
+  &:after {
+    content: "";
+    width: 29.875rem;
+    height: 0.0625rem;
+    background-color: #6C839A;
+  }
+}
+
+.link-before-after {
+
+  &:before {
+    content: "";
+    width: 6.25rem;
+    height: 0.0625rem;
+    background-color: #6C839A;
+  }
+  &:after {
+    content:">";
+    color: #6C839A;
+    font-weight: 800;
+  }
+}
+
+
+.dot-active-after{
+  &:after {
+    content: "";
+    background-color: white;
+    border-radius: 3.75rem;
+    width: 1.88rem;
+    position: absolute;
+    z-index: 55;
+    inset: 0;
+    animation: toRight 0.5s 0.1s ease-in-out forwards;
+  }
+}
+
+@keyframes toRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(30%);
+  }
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes hovered-sellcard-img {
   from {
     scale: 1;

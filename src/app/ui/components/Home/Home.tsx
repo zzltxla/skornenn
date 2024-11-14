@@ -5,11 +5,44 @@ import { Typo } from "../../design-system/typography/Typo";
 import { SkornennLogo } from "../../design-system/svg/SkornennLogo";
 import { VectorForest } from "../../design-system/svg/VectorForest";
 import { VectorIce } from "../../design-system/svg/VectorIce";
+import { VectorSliderTop } from "../../design-system/svg/VectorSliderTop";
 import { Button } from "../../design-system/buttons/Buttons";
 import { Footer } from "../Footer/Footer";
 import React, { useState, useEffect } from 'react';
+import { Carousel } from "../Slider/Carousel";
+import Link from "next/link";
+
 
 export default function Home() {
+
+    const images = [ //images from the carousel (slide)
+        {
+            id: 'p1',
+            title: 'Canette de cidre parfumé à la fraise',
+            url: '/img/canette-cidre-fraise.webp',
+        },
+        {
+            id: 'p2',
+            title: 'Canette de cidre parfumé à la poire',
+            url: '/img/canette-cidre-poire.webp',
+        },
+        {
+            id: 'p3',
+            title: 'Canette de cidre parfumé au fruit de la passion',
+            url: '/img/canette-cidre-passion.webp',
+        },
+        {
+            id: 'p4',
+            title: "Canette de cidre parfumé à l'orange",
+            url: '/img/canette-cidre-orange.webp',
+        },
+        {
+            id: 'p5',
+            title: 'Bouteille de cidre parfumé',
+            url: '/img/bouteille-cidre-parfume.png',
+        },
+    ];
+
 
     const [isSection, setIsInSection] = useState(false);
 
@@ -21,7 +54,7 @@ export default function Home() {
             if (section) {
                 const sectionTop = section.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-    
+
                 if (sectionTop <= windowHeight / 2) {
                     setIsInSection(true);
                 } else {
@@ -62,9 +95,9 @@ export default function Home() {
                         )}
                     </div>
                 </div>
-                <div className="absolute z-10 inset-x-0  bottom-[16%] flex flex-col items-center w-full">
+                <div className="absolute z-10 inset-x-0  bottom-[30%] flex flex-col items-center w-full">
                     <SkornennLogo className="w-full mb-[5rem]" />
-                    <Button
+                    {/* <Button
                         variant="primary"
                     >
                         <Typo
@@ -84,12 +117,18 @@ export default function Home() {
                         >
                             Continuez
                         </Typo>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <section className="bg-home-product-gradient shadow-home-products-white sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
             >
-                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-5.62rem py-[5rem] px-[6.25rem]" id="product-section-one">
+                <Typo
+                variant="h2"
+                font="noto"
+                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
+                    Les nouveautés
+                </Typo>
+                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem]" id="product-section-one">
                     <SellCard></SellCard>
                     <SellCard></SellCard>
                     <SellCard></SellCard>
@@ -97,43 +136,48 @@ export default function Home() {
                     <SellCard></SellCard>
                     <SellCard></SellCard>
                 </div>
+                <Link href="/Home">
+                    <Typo
+                    variant="p"
+                    font="noto"
+                    className="text-gray font-semibold link-before-after text-right ml-auto mr-[6.25rem] flex items-center justify-center gap-[0.62rem] w-fit">
+                        En voir plus
+                    </Typo>
+                </Link>
             </section>
             <div className="h-fit absolute z-[20] shadow-vector-shadow">
                 <VectorForest
                     className="w-full shadow-vector-shadow "
                 />
             </div>
-            <div className="sticky w-full h-full -z-[1]">
+            <div className="sticky w-full h-full ">
                 <section className="relative w-full h-fit py-[11.25rem] px-[6.25rem]">
 
                     <div className="w-[38.8rem] h-fit flex flex-col mr-auto">
                         <Typo
                             variant="h1"
-                            color="white"
                             font="noto"
+                            className="text-white"
                         >
                             Skornenn
                         </Typo>
                         <Typo
                             variant="p"
-                            color="white"
                             font="noto"
-                            className="mt-[2.5rem]"
+                            className="mt-[2.5rem] text-white"
                         >
                             Au cœur de la Bretagne, terre de légendes et de traditions, la distillerie Skornenn se distingue par son engagement à produire des cidres d'exception. Fondée par des passionnés du terroir breton, Skornenn allie savoir-faire ancestral et innovation moderne pour offrir une gamme de cidres doux et parfumés, disponibles avec et sans alcool, en canette et en bouteille.
                         </Typo>
                         <Typo
                             variant="p"
-                            color="white"
                             font="noto"
-                            className="mt-[2.5rem]">
+                            className="mt-[2.5rem] text-white">
                             Les vergers de Skornenn, situés dans les vallons verdoyants de la Bretagne, bénéficient d'un climat tempéré idéal pour la culture des pommes à cidre. Chaque pomme est sélectionnée pour sa qualité et son goût unique, garantissant ainsi un cidre authentique et savoureux.
                         </Typo>
                         <Typo
                             variant="p"
-                            color="white"
                             font="noto"
-                            className="mt-[2.5rem]">
+                            className="mt-[2.5rem] text-white">
 
                             À Skornenn, la production du cidre est un véritable art. Les pommes, récoltées à la main, sont pressées selon des méthodes traditionnelles pour en extraire le meilleur jus. La fermentation est réalisée lentement, permettant de développer des arômes riches et complexes. Cette attention portée à chaque étape de la production assure un cidre doux et parfumé, reflet du terroir breton. (textes générés par Chat GPT)
                         </Typo>
@@ -143,7 +187,6 @@ export default function Home() {
                         >
                             <Typo
                                 variant="h4"
-                                color="white"
                                 font="noto"
                             >
                                 Découvrir notre histoire
@@ -151,10 +194,8 @@ export default function Home() {
                         </Button>
                     </div>
                 </section>
-                <div className="w-full h-fit relative z-20">
-                    <VectorIce
-                        className="w-full"
-                    />
+                <div className="w-screen h-fit relative z-20">
+                    <VectorIce className=""></VectorIce>
                 </div>
             </div>
             <section className="relative w-full h-fit px-[10rem] py-[7.5rem] bg-white z-20 flex justify-center items-center">
@@ -168,37 +209,32 @@ export default function Home() {
                 <div className="max-w-[30rem] h-fit py-[5rem] px-[2.5rem] sticky ">
                     <Typo
                         variant="h2"
-                        color="primary"
                         font="noto"
-                        className="mb-[2.5rem] w-full h-fit text-left"
+                        className="mb-[2.5rem] w-full h-fit text-left text-primary"
                     >
                         Un vent frais pour le cidre breton
                     </Typo>
-                    <div className="flex flex-col items-start justify-center gap-[1.5rem] w-full h-fit text-left">
+                    <div className="flex flex-col items-start justify-center gap-[1.5rem] w-full h-fit text-left text-gray">
                         <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
                         >
                             Lorem ipsum dolor sit amet consectetur. Est donec lorem neque ultrices. Bibendum vitae donec augue viverra pulvinar pharetra platea nunc dui. Molestie vel purus porttitor mi eget vel sit orci nunc.
                         </Typo>
                         <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
                         >
                             Facilisis est egestas enim amet dapibus in malesuada pellentesque. Gravida ornare justo arcu integer habitant tellus. Leo velit tellus convallis interdum orci faucibus. Eleifend pellentesque a odio adipiscing lacinia morbi egestas ornare. Sed ornare fermentum aliquam platea pellentesque eu risus. Eget nisl nulla sagittis scelerisque.
                         </Typo>
                         <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
                         >
                             Id nec viverra elementum ac. Neque id ante dignissim pellentesque nisl.
                         </Typo>
                         <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
                         >
                             Habitant in eu ultrices sed. Ut varius libero massa commodo. Vestibulum aenean mattis commodo sagittis amet feugiat urna eget pellentesque.
@@ -214,6 +250,126 @@ export default function Home() {
                     />
                 </div>
             </section>
+            <div className="h-fit absolute z-[20] shadow-vector-shadow">
+                <VectorForest
+                    className="w-full shadow-vector-shadow "
+                />
+            </div>
+            <div className="sticky w-full h-fit z-[15]">
+                <Carousel className="sticky w-full h-full -z-[1]" images={images}></Carousel>
+            </div>
+            <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
+            >
+                <Typo
+                variant="h2"
+                font="noto"
+                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
+                    Nos produits phares
+                </Typo>
+                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem]">
+                    <SellCard></SellCard>
+                    <SellCard></SellCard>
+                    <SellCard></SellCard>
+                    <SellCard></SellCard>
+                    <SellCard></SellCard>
+                    <SellCard></SellCard>
+                </div>
+                <Link href="/">
+                    <Typo
+                    variant="p"
+                    font="noto"
+                    className="text-gray font-semibold link-before-after text-right ml-auto mr-[6.25rem] flex items-center justify-center gap-[0.62rem] w-fit">
+                        En voir plus
+                    </Typo>
+                </Link>
+            </section>
+            <div className="grid grid-cols-2 grid-rows-3 grid-flow-row-dense auto-rows-fr auto-cols-fr gap-[1.25rem] p-[1.25rem] bg-white">
+            <div className="h-[50rem] relative">
+                    <Image src="/img/cidre-orange-canette-placeholder.webp" alt="Canette de cidre parfumé à l'orange au milieu d'un environement glacier" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0"/>
+                    <div>
+                        <Typo
+                        variant="h2"
+                        font="noto"
+                        className="text-white font-extrabold"
+                        >
+                            Cidre parfumé
+                        </Typo>
+                        <Button variant="primary">
+                            <Typo variant="h4" font="noto" className="text-white">
+                                Découvrir le cidre parfumé
+                            </Typo>
+                        </Button>
+                    </div>
+                </div>
+                <div className="h-[50rem] relative">
+                    <Image src="/img/cidre-parfume-canette-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0"/>
+                    <div>
+                        <Typo
+                        variant="h2"
+                        font="noto"
+                        className="text-white font-extrabold"
+                        >
+                            Cidre sans alcool
+                        </Typo>
+                        <Button variant="primary">
+                            <Typo variant="h4" font="noto" className="text-white">
+                                Découvrir le cidre BIO
+                            </Typo>
+                        </Button>
+                    </div>
+                </div>
+                <div className="h-[37.5rem] col-span-2 relative place-self-stretch justify-self-stretch">
+                    <Image src="/img/verre-jus-pomme-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 "/>
+                    <div>
+                        <Typo
+                        variant="h2"
+                        font="noto"
+                        className="text-white font-extrabold"
+                        >
+                            Cidre sans alcool
+                        </Typo>
+                        <Button variant="primary">
+                            <Typo variant="h4" font="noto" className="text-white">
+                                Découvrir le cidre sans alcool
+                            </Typo>
+                        </Button>
+                    </div>
+                </div>
+                <div className="h-[50rem] relative">
+                    <Image src="/img/cidre-nature-canette-placeholder.webp" alt="Canette de cidre nature enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100"/>
+                    <div>
+                        <Typo
+                        variant="h2"
+                        font="noto"
+                        className="text-white font-extrabold"
+                        >
+                            Cidre nature
+                        </Typo>
+                        <Button variant="primary">
+                            <Typo variant="h4" font="noto" className="">
+                                Découvrir de le cidre nature
+                            </Typo>
+                        </Button>
+                    </div>
+                </div>
+                <div className="h-[50rem] relative">
+                    <Image src="/img/pomme-neige-placeholder.webp" alt="Pomme enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100"/>
+                    <div>
+                        <Typo
+                        variant="h2"
+                        font="noto"
+                        className="text-white font-extrabold"
+                        >
+                            Cidre glacé
+                        </Typo>
+                        <Button variant="primary">
+                            <Typo variant="h4" font="noto" className="text-white">
+                                Découvrir de le cidre glacé
+                            </Typo>
+                        </Button>
+                    </div>
+                </div>
+            </div>
             <Footer></Footer>
         </main>
     )

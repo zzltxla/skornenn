@@ -38,7 +38,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
     switch (variant) {
         case "hovered":
         return (
-            <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem] hover:cursor-pointer will-change-auto"
+            <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
             onMouseEnter={ () => handleVariantChange("hovered")}
             onMouseLeave={ () => handleVariantChange("not-hovered")}
             >
@@ -47,6 +47,8 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                 alt="Arrière plan effet glace"
                 layout="fill"
                 className="absolute w-full h-full fadein-background-sellcard will-change-transform" 
+                onMouseEnter={ () => handleVariantChange("hovered")}
+                onMouseLeave={ () => handleVariantChange("not-hovered")}
                 />
                 <div className="w-full h-full bg-radial-white-sellcard absolute "></div>
                 <div className="relative w-full h-[13.3125rem]">
@@ -78,35 +80,31 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     <div className="items-start flex flex-col">
                         <Typo 
                         variant="h3"
-                        color="primary"
                         font="noto"
-                        className="mb-[0.94rem] font-bold"
+                        className="mb-[0.94rem] font-bold text-primary"
                         >
                             Canette Orange Sanguines
                         </Typo>
                         <Typo
                         variant="p"
-                        color="gray"
                         font="noto"
-                        className="mb-[2.19rem] font-normal"
+                        className="mb-[2.19rem] font-normal text-gray"
                         >
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus error ex cupiditate rerum eum totam voluptatibus rem iste quas cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, nobis!
                         </Typo>
                         <div className="flex gap-[0.31rem] justify-between items-center">
                             <Typo
                             variant="h3"
-                            color="primary"
                             font="noto"
-                            className="font-bold"
+                            className="font-bold text-primary"
                             >
                                 1.70$
                             </Typo>
                             <span color="midgray">/</span>
                             <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
-                            className="font-semibold"
+                            className="font-semibold text-gray"
                             >
                                 33CL
                             </Typo>
@@ -118,8 +116,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     >
                         <Typo
                         variant="h4"
-                        color="primary"
-                        font="noto"
+                        font="noto" 
                         >
                             Ajouter au panier
                         </Typo>
@@ -129,8 +126,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
         );
         case "not-hovered": 
         return (
-
-            <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounder-[0.31rem] hover:cursor-pointer will-change-auto" 
+            <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative rounded-[0.31rem] transition-all ease-in-out duration-800 delay-100 hover:cursor-pointer will-change-auto" 
             onMouseEnter={ () => handleVariantChange("hovered")}
             onMouseLeave={ () => handleVariantChange("not-hovered")}
             >
@@ -163,35 +159,31 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     <div className="items-start flex flex-col">
                         <Typo 
                         variant="h3"
-                        color="primary"
                         font="noto"
-                        className="mb-[0.94rem] font-bold"
+                        className="mb-[0.94rem] font-bold text-primary"
                         >
                             Canette Orange Sanguines
                         </Typo>
                         <Typo
                         variant="p"
-                        color="gray"
                         font="noto"
-                        className="mb-[2.19rem] font-normal"
+                        className="mb-[2.19rem] font-normal text-gray"
                         >
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus error ex cupiditate rerum eum totam voluptatibus rem iste quas cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, nobis!
                         </Typo>
                         <div className="flex gap-[0.31rem] justify-between items-center">
                             <Typo
                             variant="h3"
-                            color="primary"
                             font="noto"
-                            className="font-bold"
+                            className="font-bold text-primary"
                             >
                                 1.70$
                             </Typo>
                             <span color="midgray">/</span>
                             <Typo
                             variant="p"
-                            color="gray"
                             font="noto"
-                            className="font-semibold"
+                            className="font-semibold text-gray"
                             >
                                 33CL
                             </Typo>
@@ -203,7 +195,6 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     >
                         <Typo
                         variant="h4"
-                        color="primary"
                         font="noto"
                         >
                             Ajouter au panier
