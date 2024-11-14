@@ -70,7 +70,7 @@ export default function Home() {
     }, []);
 
     return (
-        <main>
+        <main className="overflow-x-hidden">
             <Header variant="logo" />
             <div className="relative -z-[3] h-screen w-screen mb-[1rem] overflow-y-scroll">
                 <div className="h-[50%] w-full -z-[1] ">
@@ -81,22 +81,22 @@ export default function Home() {
                                     src="/img/frozen-lake-snow-placeholder.webp"
                                     alt="lac glacier"
                                     layout="fill"
-                                    className="brightness-50 h-full w-full "
+                                    className="brightness-50 h-full w-full object-cover"
                                 />
                             </div>
                         ) : (
-                            <div className="absolute">
-                                <video autoPlay muted width={1440} height={900}
-                                    className="brightness-50 shadow-home-video-inset fixed inset-0 w-full "
+                            <div className="w-full h-full sticky top-100 inset-x-0">
+                                <video autoPlay muted 
+                                    className="brightness-50 shadow-home-video-inset fixed inset-0 w-full h-auto object-center"
                                 >
-                                    <source src="/video/header-video.mp4" type="video/mp4" />
+                                    <source src="/video/header-video.mp4" type="video/mp4" className="w-full h-auto"/>
                                 </video>
                             </div>
                         )}
                     </div>
                 </div>
                 <div className="absolute z-10 inset-x-0  bottom-[30%] flex flex-col items-center w-full">
-                    <SkornennLogo className="w-full mb-[5rem]" />
+                    <SkornennLogo className="w-full mb-[5rem] h-[clamp(5rem, 2.3787rem + 11.6503vw, 12.86394rem)]" />
                     {/* <Button
                         variant="primary"
                     >
@@ -120,15 +120,15 @@ export default function Home() {
                     </div> */}
                 </div>
             </div>
-            <section className="bg-home-product-gradient shadow-home-products-white sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
+            <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
             >
                 <Typo
                 variant="h2"
                 font="noto"
                 className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
-                    Les nouveautés
+                    Nos produits phares
                 </Typo>
-                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem]" id="product-section-one">
+                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
                     <SellCard></SellCard>
                     <SellCard></SellCard>
                     <SellCard></SellCard>
@@ -136,7 +136,7 @@ export default function Home() {
                     <SellCard></SellCard>
                     <SellCard></SellCard>
                 </div>
-                <Link href="/Home">
+                <Link href="/">
                     <Typo
                     variant="p"
                     font="noto"
@@ -198,7 +198,7 @@ export default function Home() {
                     <VectorIce className=""></VectorIce>
                 </div>
             </div>
-            <section className="relative w-full h-fit px-[10rem] py-[7.5rem] bg-white z-20 flex justify-center items-center">
+            <section className="relative w-full h-fit px-[10rem] py-[7.5rem] bg-white z-20 flex justify-center items-center max-md:flex-col-reverse">
                 <Image
                     src="/img/sellcard-background.webp"
                     alt="Arrière plan effet glace"
@@ -241,7 +241,7 @@ export default function Home() {
                         </Typo>
                     </div>
                 </div>
-                <div className="w-[40%] h-[34.2rem] object-fit relative">
+                <div className="w-[40%] max-md:w-full max-md:h-[25rem]  h-[34.2rem] object-fit relative">
                     <Image
                         src="/img/cidre-orange-product.webp"
                         alt="Canette de cidre à l'orange de la marque Skornenn"
@@ -266,7 +266,7 @@ export default function Home() {
                 className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
                     Nos produits phares
                 </Typo>
-                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem]">
+                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]">
                     <SellCard></SellCard>
                     <SellCard></SellCard>
                     <SellCard></SellCard>
@@ -309,10 +309,10 @@ export default function Home() {
                         font="noto"
                         className="text-white font-extrabold"
                         >
-                            Cidre sans alcool
+                            Cidre BIO
                         </Typo>
                         <Button variant="primary">
-                            <Typo variant="h4" font="noto" className="text-white">
+                            <Typo variant="h4" font="noto" >
                                 Découvrir le cidre BIO
                             </Typo>
                         </Button>
@@ -329,7 +329,7 @@ export default function Home() {
                             Cidre sans alcool
                         </Typo>
                         <Button variant="primary">
-                            <Typo variant="h4" font="noto" className="text-white">
+                            <Typo variant="h4" font="noto" >
                                 Découvrir le cidre sans alcool
                             </Typo>
                         </Button>
@@ -363,7 +363,7 @@ export default function Home() {
                             Cidre glacé
                         </Typo>
                         <Button variant="primary">
-                            <Typo variant="h4" font="noto" className="text-white">
+                            <Typo variant="h4" font="noto" >
                                 Découvrir de le cidre glacé
                             </Typo>
                         </Button>

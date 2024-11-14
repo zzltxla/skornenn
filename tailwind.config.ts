@@ -14,7 +14,6 @@ const config: Config = {
         md: "901px",
         lg: "1101px",
         xl: "1441px",
-
         k: "1028px",
       },
       colors: {

@@ -13,6 +13,12 @@
   }
 }
 
+:root {
+  --primary: #87CEFA;
+  --white: #FFFFFF;
+  --gray: #6C839A;
+}
+
 .bg-text-clamp {
   font-size: clamp(1.875rem, 0.8333rem + 4.6296vw, 5rem);
 }
@@ -29,12 +35,67 @@
   font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem);
 }
 
-.fadein-background-sellcard {
-  animation: hovered-sellcard 1s ease 0.1s 1 normal  forwards;
+
+
+.footer-social-animation {
+  transition: ease-in-out .2s .1s;
+  &:hover {
+    animation: hoverInvert .3s ease-in-out 0.3s 1 forwards;
+  }
 }
 
-.zoomin-img-sellcard {
-  animation: hovered-sellcard-img 1.4s ease 0.1s 1 normal  forwards;
+
+@keyframes hoverInvert {
+  0% {
+    background-color: white;
+  }
+  30% {
+    background-color: var(--primary/50%);
+  }
+  100% {
+    background-color: var(--primary);
+  }
+}
+
+.menu-button {
+
+  div:nth-child(1) {
+    top: 0px;
+  }
+  
+  div:nth-child(2),div:nth-child(3) {
+    top: 50%;
+  }
+  
+  div:nth-child(4) {
+    top: 100%;
+  }
+
+  .active div:nth-child(1) {
+    top: 0px;
+    width: 0%;
+    left: 50%;
+  }
+  
+  .active div:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .active div:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .active div:nth-child(4) {
+    top: 50%;
+    width: 0%;
+    left: 50%;
+  }
 }
 
 .title-section-before-after {
@@ -91,22 +152,19 @@
 }
 
 @keyframes slideAnimation {
-  0% {
-    transform: translateX(200px);
-    opacity: 0;
-  }
-  10% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  20% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+
   100% {
-    transform: translateX(0);
     opacity: 1;
+    transform: translateX(0%);
   }
+}
+
+.fadein-background-sellcard {
+  animation:  1s ease-in-out 0.1s 1 both hovered-sellcard;
+}
+
+.zoomin-img-sellcard {
+  animation: 1s ease-in-out 0.1s 1 both hovered-sellcard-img;
 }
 
 @keyframes hovered-sellcard-img {
@@ -117,10 +175,10 @@
   }
 }
 @keyframes hovered-sellcard {
-  0% {
+  from {
 	opacity: 0;
   }
-  100% {
+  to {
 	opacity: 0.5;
   }
 }

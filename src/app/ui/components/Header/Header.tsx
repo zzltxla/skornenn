@@ -18,7 +18,7 @@ export const Header = ({variant}:Props) => {
     switch (variant) {
         case "logo":
         return ( 
-            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] pt-[1rem] pb-[3rem] fixed z-10">
+            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] pt-[1rem] pb-[3rem] fixed z-50">
                 <SkornennLogo className="w-[10.93169rem] h-fit"></SkornennLogo>
                 <div className="flex gap-[0.62rem] items-center justify-between w-fit h-fit">
                     <MagnifyGlassIcon></MagnifyGlassIcon>
@@ -30,7 +30,7 @@ export const Header = ({variant}:Props) => {
         );
         case "no-logo":
         return ( 
-            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] py-[1rem] fixed z-10">
+            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] py-[1rem] fixed z-50">
                 <div className="flex gap-[0.62rem] items-center justify-between w-fit h-fit ml-auto">
                     <MagnifyGlassIcon></MagnifyGlassIcon>
                     <AccountIcon></AccountIcon>
