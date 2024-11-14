@@ -10,8 +10,10 @@ import { InstagramIcon } from "../../design-system/svg/InstagramIcon";
 
 export const Footer = ({}) => {
     return (
-        <footer className="w-full h-fit pt-[5rem] pb-[7.5rem] bg-white bg-[url('../public/img/panoramic-snowy-view-placeholder.webp') no-reapeat left top, radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%)] flex flex-col items-center justify-center">
-            <div className="text-center flex flex-col items-center justify-center gap-[1.25rem] mb-[2.5rem] text-gray">
+        <footer className="w-full h-fit pt-[5rem] pb-[7.5rem] relative left top,  flex flex-col items-center justify-center overflow-hidden">
+            <Image src="/img/panoramic-snowy-view-placeholder.webp" alt="Vue panoramique d'une banquise" layout="fill" className="object-cover absolute z-[1] "/>
+            <div className="bg-radial-footer absolute z-[2] w-full h-full"></div>
+            <div className="text-center flex flex-col items-center justify-center gap-[1.25rem] mb-[2.5rem] text-gray sticky z-[2]">
                 <SkornennLogo
                 className="w-[18.75rem] h-[4.288rem]"/>
                 <Typo
@@ -22,7 +24,7 @@ export const Footer = ({}) => {
                 </Typo>
             </div>
             <nav className="">
-                <ul className="list-none flex flex-row gap-[2.5rem] items-center justify-center text-gray">
+                <ul className="list-none flex flex-row gap-[2.5rem] items-center justify-center text-gray sticky z-[2] my-[3.75rem]">
                     <li>
                         <Link to="/">
                             <Typo 
@@ -63,60 +65,74 @@ export const Footer = ({}) => {
                             </Typo>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/">
+                            <Typo 
+                            variant="h4"
+                            font="noto"
+                            >
+                                Cidres glace
+                            </Typo>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <nav>
-                <ul className="list-none flex flex-row gap-[0.94rem] items-center justify-center">
+                <ul className="list-none flex flex-row gap-[1.88rem] items-center justify-center sticky z-[2]">
                     <li>
                         <Link to="/">
                             <Typo
                             variant="p"
-                            color="primary"
                             font="noto"
-                            className="hidden"
+                            className="hidden text-primary"
                             >
                                 Instagram
                             </Typo>
-                            <InstagramIcon/>
+                            <div className="bg-white rounded-full w-[50px] h-[50px] flex items-center justify-center">
+                                <InstagramIcon/>
+                            </div>
                         </Link>
                     </li>
                     <li>
                         <Link to="/">
                             <Typo
                             variant="p"
-                            color="primary"
                             font="noto"
-                            className="hidden"
+                            className="hidden text-primary"
                             >
                                 Facebook
                             </Typo>
-                            <FacebookIcon/>
+                            <div className="bg-white rounded-full w-[50px] h-[50px] flex items-center justify-center">
+                                <FacebookIcon/>
+                            </div>
                         </Link>
                     </li>
                     <li>
                         <Link to="/">
                             <Typo
                             variant="p"
-                            color="primary"
                             font="noto"
-                            className="hidden"
+                            className="hidden text-primary"
                             >
                                 Twitter
                             </Typo>
-                            <TwitterIcon/>
+                            <div className="bg-white rounded-full w-[50px] h-[50px] flex items-center justify-center">
+                                <TwitterIcon/>
+                            </div>
                         </Link>
                     </li>
                     <li>
                         <Link to="/">
                             <Typo
                             variant="p"
-                            color="primary"
                             font="noto"
-                            className="hidden"
+                            className="hidden text-primary"
                             >
                                 Linkedin
                             </Typo>
-                            <LinkedinIcon/>
+                            <div className="bg-white rounded-full w-[50px] h-[50px] flex items-center justify-center">
+                                <LinkedinIcon/>
+                            </div>
                         </Link>
                     </li>
                 </ul>

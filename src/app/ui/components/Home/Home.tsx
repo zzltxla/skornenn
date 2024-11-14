@@ -283,10 +283,10 @@ export default function Home() {
                     </Typo>
                 </Link>
             </section>
-            <div className="grid grid-cols-2 grid-rows-3 grid-flow-row-dense auto-rows-fr auto-cols-fr gap-[1.25rem] p-[1.25rem] bg-white">
+            <div className="grid grid-cols-2 grid-flow-row grid-rows-[repeat(auto,minmax(0,1fr))] auto-cols-auto gap-[1.25rem] p-[1.25rem] bg-white">
             <div className="h-[50rem] relative">
-                    <Image src="/img/cidre-orange-canette-placeholder.webp" alt="Canette de cidre parfumé à l'orange au milieu d'un environement glacier" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0"/>
-                    <div>
+                    <Image src="/img/cidre-orange-canette-placeholder.webp" alt="Canette de cidre parfumé à l'orange au milieu d'un environement glacier" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
+                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -295,15 +295,15 @@ export default function Home() {
                             Cidre parfumé
                         </Typo>
                         <Button variant="primary">
-                            <Typo variant="h4" font="noto" className="text-white">
+                            <Typo variant="h4" font="noto">
                                 Découvrir le cidre parfumé
                             </Typo>
                         </Button>
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
-                    <Image src="/img/cidre-parfume-canette-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0"/>
-                    <div>
+                    <Image src="/img/cidre-parfume-canette-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
+                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -317,10 +317,10 @@ export default function Home() {
                             </Typo>
                         </Button>
                     </div>
-                </div>
+                </div >
                 <div className="h-[37.5rem] col-span-2 relative place-self-stretch justify-self-stretch">
-                    <Image src="/img/verre-jus-pomme-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 "/>
-                    <div>
+                    <Image src="/img/verre-jus-pomme-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
+                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -336,8 +336,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
-                    <Image src="/img/cidre-nature-canette-placeholder.webp" alt="Canette de cidre nature enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100"/>
-                    <div>
+                    <Image src="/img/cidre-nature-canette-placeholder.webp" alt="Canette de cidre nature enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
+                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -353,8 +353,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
-                    <Image src="/img/pomme-neige-placeholder.webp" alt="Pomme enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100"/>
-                    <div>
+                    <Image src="/img/pomme-neige-placeholder.webp" alt="Pomme enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
+                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
                         <Typo
                         variant="h2"
                         font="noto"

@@ -99,6 +99,8 @@ const config: Config = {
         "radial-gradient(circle, rgba(255,255,255,1) 51%, rgba(255,255,255,0.20351890756302526) 100%)",
         "sellcard-background": "url('/public/img/sellcard-background.webp') lightgray 50% / cover no-repeat, #FFF",
         "home-product-gradient": " linear-gradient(0deg, rgba(255,255,255,0.8029586834733894) 0%, rgba(255,255,255,1) 55%)",
+        "radial-footer":
+        "radial-gradient(131.94% 97.81% at 50% 0.07%, #FFF 40%, rgba(255, 255, 255, 0.00) 100%)",
       },
       boxShadow: {
         "button-shadow-hover": "0px 0px 30px 7px rgba(144, 235, 253, 0.80)",
