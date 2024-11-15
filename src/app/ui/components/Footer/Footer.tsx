@@ -27,7 +27,7 @@ export const Footer = ({}) => {
                 </Typo>
             </div>
             <nav className="">
-                <ul className="list-none flex flex-row gap-[2.5rem] items-center justify-center text-gray sticky z-[3] my-[3.75rem]">
+                <ul className="list-none flex flex-row gap-[2.5rem] items-center justify-center text-gray sticky z-[3] my-[3.75rem] max-sm:flex-col max-sm:gap-[1.88rem]">
                     <li>
                         <Link to="/">
                             <Typo 
@@ -143,7 +143,7 @@ export const Footer = ({}) => {
                     </Link>
                 </li>
             </ul>
-            <ul className="w-full h-fit text-white flex flex-row items-center justify-center gap-[1.56rem] list-none mt-[7.5rem] pt-[3.75rem]  relative z-[2]">
+            <ul className="w-full h-fit text-white flex flex-row flex-wrap items-center justify-center gap-[1.56rem] list-none mt-[7.5rem] pt-[3.75rem]  relative z-[2]">
                 <li>
                     <Link to="">
                         <Typo>

@@ -11,9 +11,11 @@ import { Footer } from "../Footer/Footer";
 import React, { useState, useEffect } from 'react';
 import { Carousel } from "../Slider/Carousel";
 import Link from "next/link";
+import { useWindowDimensions } from "@/app/WindowDimension";
 
 
 export default function Home() {
+    const { height, width } = useWindowDimensions();
 
     const images = [ //images from the carousel (slide)
         {
@@ -73,7 +75,7 @@ export default function Home() {
         <main className="overflow-x-hidden">
             <Header variant="logo" />
             <div className="relative -z-[3] h-screen w-screen mb-[1rem] overflow-y-scroll">
-                <div className="h-[50%] w-full -z-[1] ">
+                <div className="h-screen w-full -z-[1] ">
                     <div className="sticky">
                         {isSection ? (
                             <div className="w-full h-[100%] fixed  top-100 inset-x-0 ">
@@ -85,9 +87,9 @@ export default function Home() {
                                 />
                             </div>
                         ) : (
-                            <div className="w-full h-full sticky top-100 inset-x-0">
-                                <video autoPlay muted 
-                                    className="brightness-50 shadow-home-video-inset fixed inset-0 w-full h-auto object-center"
+                            <div className="min-w-full h-screen fixed top-100 inset-0">
+                                <video autoPlay muted loop
+                                    className="aspect-auto responsive-video brightness-50 shadow-home-video-inset absolute inset-0 min-w-full min-h-full bg-cover object-cover"
                                 >
                                     <source src="/video/header-video.mp4" type="video/mp4" className="w-full h-auto"/>
                                 </video>
@@ -123,19 +125,32 @@ export default function Home() {
             <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
             >
                 <Typo
-                variant="h2"
+                variant="h1"
                 font="noto"
-                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
-                    Nos produits phares
+                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem] text-center text-balance max-md:px-[1.25rem] max-sm:gap-[0.94rem]">
+                    Les nouveautés
                 </Typo>
-                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
-                    <SellCard></SellCard>
-                    <SellCard></SellCard>
-                    <SellCard></SellCard>
-                    <SellCard></SellCard>
-                    <SellCard></SellCard>
-                    <SellCard></SellCard>
-                </div>
+                {
+                    width >= 901 ? 
+                    <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
+                        <SellCard></SellCard>
+                        <SellCard></SellCard>
+                        <SellCard></SellCard>
+                        <SellCard></SellCard>
+                        <SellCard></SellCard>
+                        <SellCard></SellCard>
+                    </div>
+                    : 
+                    <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
+                        <SellCard variant="mobile"/>
+                        <SellCard variant="mobile"/>
+                        <SellCard variant="mobile"/>
+                        <SellCard variant="mobile"/>
+                        <SellCard variant="mobile"/>
+                        <SellCard variant="mobile"/>
+                    </div>
+                }
+
                 <Link href="/">
                     <Typo
                     variant="p"
@@ -151,9 +166,9 @@ export default function Home() {
                 />
             </div>
             <div className="sticky w-full h-full ">
-                <section className="relative w-full h-fit py-[11.25rem] px-[6.25rem]">
+                <section className="relative w-full h-fit py-[11.25rem] px-[6.25rem] max-md:px-[1.25rem]">
 
-                    <div className="w-[38.8rem] h-fit flex flex-col mr-auto">
+                    <div className="w-[38.8rem] h-fit flex flex-col mr-auto max-md:w-full">
                         <Typo
                             variant="h1"
                             font="noto"
@@ -198,7 +213,7 @@ export default function Home() {
                     <VectorIce className=""></VectorIce>
                 </div>
             </div>
-            <section className="relative w-full h-fit px-[10rem] py-[7.5rem] bg-white z-20 flex justify-center items-center max-md:flex-col-reverse">
+            <section className="relative w-full h-fit px-[clamp(1.25rem, -1.6667rem + 12.963vw, 10rem)] py-[7.5rem] bg-white z-20 flex justify-center items-center max-md:flex-col-reverse">
                 <Image
                     src="/img/sellcard-background.webp"
                     alt="Arrière plan effet glace"
@@ -246,7 +261,7 @@ export default function Home() {
                         src="/img/cidre-orange-product.webp"
                         alt="Canette de cidre à l'orange de la marque Skornenn"
                         fill
-                        className="w-full h-fit mt-[5rem] mb-[2.5rem] mr-[5rem]"
+                        className="w-full h-full mt-[5rem] mb-[2.5rem] mr-[5rem] object-contain object-center"
                     />
                 </div>
             </section>
@@ -263,7 +278,7 @@ export default function Home() {
                 <Typo
                 variant="h2"
                 font="noto"
-                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem]">
+                className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem] text-center text-balance max-md:px-[1.25rem] max-sm:gap-[0.94rem]">
                     Nos produits phares
                 </Typo>
                 <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]">
@@ -283,10 +298,10 @@ export default function Home() {
                     </Typo>
                 </Link>
             </section>
-            <div className="grid grid-cols-2 grid-flow-row grid-rows-[repeat(auto,minmax(0,1fr))] auto-cols-auto gap-[1.25rem] p-[1.25rem] bg-white">
+            <div className="grid grid-cols-2 grid-flow-row grid-rows-[repeat(auto,minmax(0,1fr))] auto-cols-auto gap-[1.25rem] p-[1.25rem] bg-white max-sm:grid-cols-1 max-sm:grid-rows-[repeat(auto,minmax(0,1fr))]">
             <div className="h-[50rem] relative">
                     <Image src="/img/cidre-orange-canette-placeholder.webp" alt="Canette de cidre parfumé à l'orange au milieu d'un environement glacier" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
+                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-sm:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -294,16 +309,16 @@ export default function Home() {
                         >
                             Cidre parfumé
                         </Typo>
-                        <Button variant="primary">
+                        <Button variant="primary" className="w-fit max-md:w-full">
                             <Typo variant="h4" font="noto">
-                                Découvrir le cidre parfumé
+                            Découvrir la sélection
                             </Typo>
                         </Button>
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/cidre-parfume-canette-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
+                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -311,16 +326,16 @@ export default function Home() {
                         >
                             Cidre BIO
                         </Typo>
-                        <Button variant="primary">
+                        <Button variant="primary" className="w-fit max-md:w-full">
                             <Typo variant="h4" font="noto" >
-                                Découvrir le cidre BIO
+                            Découvrir la sélection
                             </Typo>
                         </Button>
                     </div>
                 </div >
-                <div className="h-[37.5rem] col-span-2 relative place-self-stretch justify-self-stretch">
+                <div className="h-[37.5rem] col-span-2 relative place-self-stretch justify-self-stretch max-sm:col-span-1">
                     <Image src="/img/verre-jus-pomme-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
+                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -328,16 +343,16 @@ export default function Home() {
                         >
                             Cidre sans alcool
                         </Typo>
-                        <Button variant="primary">
-                            <Typo variant="h4" font="noto" >
-                                Découvrir le cidre sans alcool
+                        <Button variant="primary" className="w-fit max-md:w-full">
+                            <Typo variant="h4" font="noto">
+                            Découvrir la sélection
                             </Typo>
                         </Button>
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/cidre-nature-canette-placeholder.webp" alt="Canette de cidre nature enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
+                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -345,16 +360,16 @@ export default function Home() {
                         >
                             Cidre nature
                         </Typo>
-                        <Button variant="primary">
+                        <Button variant="primary" className="w-fit max-md:w-full">
                             <Typo variant="h4" font="noto" className="">
-                                Découvrir de le cidre nature
+                            Découvrir la sélection
                             </Typo>
                         </Button>
                     </div>
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/pomme-neige-placeholder.webp" alt="Pomme enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-28 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem]">
+                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -362,9 +377,9 @@ export default function Home() {
                         >
                             Cidre glacé
                         </Typo>
-                        <Button variant="primary">
+                        <Button variant="primary" className="w-fit max-md:w-full">
                             <Typo variant="h4" font="noto" >
-                                Découvrir de le cidre glacé
+                                Découvrir la sélection
                             </Typo>
                         </Button>
                     </div>

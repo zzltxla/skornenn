@@ -101,13 +101,13 @@
 .title-section-before-after {
   &:before {
     content: "";
-    width: 29.875rem;
+    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
     height: 0.0625rem;
     background-color: #6C839A;
   }
   &:after {
     content: "";
-    width: 29.875rem;
+    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
     height: 0.0625rem;
     background-color: #6C839A;
   }

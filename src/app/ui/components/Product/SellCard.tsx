@@ -10,7 +10,7 @@ import { Button } from "../../design-system/buttons/Buttons";
 import { Link } from "react-router-dom";
 import { useWindowDimensions } from "@/app/WindowDimension";
 
-type VariantType = "hovered" | "not-hovered";
+type VariantType = "hovered" | "not-hovered" | "mobile";
 interface Props {
     favorie?: boolean;
     className?: string;
@@ -43,6 +43,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
     switch (variant) {
         case "hovered":
             return (
+                
                 <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
                     onMouseEnter={() => handleVariantChange("hovered")}
                     onMouseLeave={() => handleVariantChange("not-hovered")}
@@ -59,7 +60,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                             <button
                                 className="relative min-h-[24px] right-[5%] inset-y-5 z-50"
                                 onClick={() => handleToggleFavorie()}>
-                                <HeartIcon filled={isFavorie} className="z-50" />
+                                <HeartIcon filled={isFavorie} className="z-[100]" />
                             </button>
                         </div>
                         <Link to="/product">
@@ -149,7 +150,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                             <button
                                 className="relative min-h-[24px] right-[5%] inset-y-5 z-50"
                                 onClick={() => handleToggleFavorie()}>
-                                <HeartIcon filled={isFavorie} className="z-50" />
+                                <HeartIcon filled={isFavorie} className="z-[100]" />
                             </button>
                         </div>
                         <Link to="/product">
@@ -227,6 +228,101 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     </div>
 
                 </article>
-            )
+            );
+            case "mobile":
+            return (
+                <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
+                >
+                    <Image
+                        src="/img/sellcard-background.webp"
+                        alt="Arrière plan effet glace"
+                        layout="fill"
+                        className="absolute w-full h-full opacity-50 inset-0"
+                    />
+                    <div className="w-full h-full bg-radial-white-sellcard absolute"></div>
+                    <div className="relative w-full h-[13.3125rem]">
+                        <div className="flex justify-end z-10">
+                            <button
+                                className="relative min-h-[24px] right-[5%] inset-y-5 z-50"
+                                onClick={() => handleToggleFavorie()}>
+                                <HeartIcon filled={isFavorie} className="z-[100]" />
+                            </button>
+                        </div>
+                        <Link to="/product">
+                            <Image
+                                src="/img/cidre-orange-product.webp"
+                                alt="Canette de cidre à l'orange"
+                                layout="fill"
+                                className="mb-[0.62rem] w-full relative object-contain pt-[1.5rem] z-10 zoomin-img-sellcard"
+                            />
+                            <div className="left-0 top-[1.85625rem] z-5 absolute w-[25.5rem]">
+                                <Typo
+                                    variant="bg-text"
+                                    font="noto"
+                                >
+                                    CIDRE <br /> PARFUMÉ
+                                </Typo>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="p-[1.5rem] absolute">
+                        <div className="items-start flex flex-col">
+                            <Typo
+                                variant="h3"
+                                font="noto"
+                                className="mb-[0.94rem] font-bold text-primary"
+                            >
+                                Canette Orange Sanguines
+                            </Typo>
+                            <Typo
+                                variant="p"
+                                font="noto"
+                                className="mb-[2.19rem] font-normal text-gray max-md:hidden"
+                            >
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus error ex cupiditate rerum eum totam voluptatibus rem iste quas cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, nobis!
+                            </Typo>
+                            <div className="flex gap-[0.31rem] justify-between items-center">
+                                <Typo
+                                    variant="h3"
+                                    font="noto"
+                                    className="font-bold text-primary"
+                                >
+                                    1.70$
+                                </Typo>
+                                <span color="midgray">/</span>
+                                <Typo
+                                    variant="p"
+                                    font="noto"
+                                    className="font-semibold text-gray"
+                                >
+                                    33CL
+                                </Typo>
+                            </div>
+                        </div>
+                        <Button
+                            variant="secondary"
+                            className="w-full mt-[2.5rem] px-auto"
+                        >
+                            {
+                                width < 901 ? 
+                                (<Typo
+                                    variant="h4"
+                                    font="noto"
+                                >
+                                Acheter
+                                </Typo>) 
+                                : 
+                                (<Typo
+                                    variant="h4"
+                                    font="noto"
+                                >
+                                Ajouter au panier
+                                </Typo>)
+                            }
+                            
+                        </Button>
+                    </div>
+                </article>
+            );
     }
 };

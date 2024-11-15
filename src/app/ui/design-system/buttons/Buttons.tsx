@@ -18,7 +18,7 @@ export const Button = ({
     switch (variant) {
         case "primary":
         return (
-            <button className={clsx("flex items-center justify-center bg-transparent border-[1px] border-white border-solid rounded-[0.19rem] w-fit h-fit px-[5rem] py-[0.5rem] text-white text-center transition-all duration-800 ease-out delay-100", className,
+            <button className={clsx("flex items-center justify-center bg-transparent border-[1px] border-white border-solid rounded-[0.19rem] h-fit px-[5rem] py-[0.5rem] text-white text-center transition-all duration-800 ease-out delay-100", className,
             "hover:bg-white hover:text-primary hover:shadow-button-shadow-hover")} onClick={onClick}>
                 {children}
             </button>

@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from "../../design-system/svg/ArrowLeftIcon";
 
 interface Props {
     className: string;
-    images: { id: number; url: string; title: string }[]; 
+    images: { id: number; url: string; title: string }[];
 }
 
 export const Carousel = ({ className, images }: Props) => {
@@ -19,32 +19,33 @@ export const Carousel = ({ className, images }: Props) => {
         setCurrentIndex((currentIndex - 1 + images.length) % images.length);
     };  //next slide function
 
+
     return (
         <div className="relative w-screen h-[56.25rem] box-border mx-auto bg-white">
             {images.map((image) => (
-                <div
-                    key={image.id}
+            <div
+                key={image.id}
 
-                    // if the image is the current image, show it
-                    className={
-                        images[currentIndex].id === image.id ? 
-                        'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_1.5s_both] z-[10]' 
-                        : 
-                        `absolute inset-0 opacity-1 z-[${image.id - 1 + images.length}] `
-                    }
-                >
-                    <img src={image.url} alt={image.title} className='w-full h-full object-cover' />
-                </div>
+                // if the image is the current image, show it
+                className={
+                    images[currentIndex].id === image.id ?
+                        'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_1.2s_both] z-[10] transition-all ease-in-out duration-200 delay-75'
+                        :
+                        `absolute inset-0 opacity-1 z-[${(image.id - 1 + images.length) % images.length}] brightness-25 transition-all ease-in-out duration-200 delay-75`
+                }
+            >
+                <img src={image.url} alt={image.title} className='w-full h-full object-cover' />
+            </div>
             ))}
 
             {/* Previous Button */}
             <Button variant="icon" onClick={prev} className='prev cursor-pointer absolute w-auto mt-[-22px] transition-[0.6s] duration-[ease] p-4 top-2/4 left-5 z-50'>
-                <ArrowLeftIcon/>
+                <ArrowLeftIcon />
             </Button>
 
             {/* Next Button */}
             <Button variant="icon" onClick={next} className='next rotate-180 cursor-pointer absolute w-auto mt-[-22px] transition-[0.6s] duration-[ease] p-4 top-2/4 right-5 z-50'>
-                <ArrowLeftIcon/>
+                <ArrowLeftIcon />
             </Button>
             <div className='flex justify-center absolute bottom-5 inset-x-0 transition-all duration-75 delay-[0.1s]'>
                 {images.map((image) => (
@@ -52,10 +53,10 @@ export const Carousel = ({ className, images }: Props) => {
                         key={image.id}
                         // highlight the dot that corresponds to the current photo
                         className={
-                            images[currentIndex].id === image.id ? 
-                            'dot-active-after relative cursor-pointer h-[20px] w-[2.5rem] mx-[5px] bg-[#ccc] rounded-[3.75rem] inline-block transition-all duration-75 delay-[0.1s] z-[12]' 
-                            :
-                            'dot cursor-pointer h-[20px] w-[20px] mx-[5px] bg-[#ccc] rounded-[50%] inline-block transition-all duration-75 delay-[0.1s] z-[12]'
+                            images[currentIndex].id === image.id ?
+                                'dot-active-after relative cursor-pointer h-[20px] w-[2.5rem] mx-[5px] bg-[#ccc] rounded-[3.75rem] inline-block transition-all duration-75 delay-[0.1s] z-[12]'
+                                :
+                                'dot cursor-pointer h-[20px] w-[20px] mx-[5px] bg-[#ccc] rounded-[50%] inline-block transition-all duration-75 delay-[0.1s] z-[12]'
                         }
                         // when the user clicks on a dot, go to the corresponding photo
                         onClick={() => setCurrentIndex(images.indexOf(image))}
