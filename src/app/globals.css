@@ -35,16 +35,55 @@
   font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem);
 }
 
+.animate-logo-home {
+  animation: showLogo 2.3s ease-in-out 0.3s 1 forwards;
+}
+@keyframes showLogo {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
 
+.top-bottom-anim {
+  animation: topBottom 1.5s ease-in-out 0.3s 1 forwards;
+}
+@keyframes topBottom{
+  from {
+    transform: translateY(-200px);
+  } to {
+    transform: translateY(0px);
+  }
+}
 
+.right-left-anim {
+  animation: rightLeft 1.5s ease-in-out 0.3s 1 forwards;
+}
+@keyframes rightLeft{
+  from {
+    transform: translateX(150%);
+  } to {
+    transform: translateX(0px);
+  }
+}
+
+.left-right-anim {
+  animation: leftRight 1.5s ease-in-out 0.3s 1 forwards;
+}
+@keyframes leftRight{
+  from {
+    transform: translateX(-150%);
+  } to {
+    transform: translateX(0px);
+  }
+}
 .footer-social-animation {
   transition: ease-in-out .2s .1s;
   &:hover {
     animation: hoverInvert .3s ease-in-out 0.3s 1 forwards;
   }
 }
-
-
 @keyframes hoverInvert {
   0% {
     background-color: white;
@@ -57,8 +96,44 @@
   }
 }
 
-.menu-button {
+.title-section-before-after {
+  &:before {
+    content: "";
+    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
+    height: 0.0625rem;
+    background-color: #6C839A;
+    animation: showLineFromLeft 0.89s ease-in 0.1s linear forwards;
+  }
+  &:after {
+    content: "";
+    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
+    height: 0.0625rem;
+    background-color: #6C839A;
+  }
+}
 
+@keyframes showLineFromLeft {
+  from {  
+
+  } to {
+
+  }
+}
+
+.show-section-title {
+  animation: showTitle 2.1s ease-in-out .1s forwards;
+}
+@keyframes showTitle {
+  from { 
+    transform: translateY(50%);
+    opacity: 0;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.menu-button {
   div:nth-child(1) {
     top: 0px;
   }
@@ -98,20 +173,9 @@
   }
 }
 
-.title-section-before-after {
-  &:before {
-    content: "";
-    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
-    height: 0.0625rem;
-    background-color: #6C839A;
-  }
-  &:after {
-    content: "";
-    width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
-    height: 0.0625rem;
-    background-color: #6C839A;
-  }
-}
+
+
+
 
 .link-before-after {
 

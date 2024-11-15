@@ -21,10 +21,10 @@ interface Props {
 
 export const SellCard = ({ favorie = false, className }: Props) => {
 
-    const [isFavorie, setIsFavorie] = useState(favorie);
+    const [isFavorie, setIsFavorie] = useState(favorie); //heartIcon button toggle 
 
     const handleToggleFavorie = () => {
-        setIsFavorie(!isFavorie);
+        setIsFavorie(!isFavorie); //toggle to filled or not filled
     };
 
     useEffect(() => {
@@ -43,7 +43,6 @@ export const SellCard = ({ favorie = false, className }: Props) => {
     switch (variant) {
         case "hovered":
             return (
-                
                 <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
                     onMouseEnter={() => handleVariantChange("hovered")}
                     onMouseLeave={() => handleVariantChange("not-hovered")}
@@ -56,7 +55,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     />
                     <div className="w-full h-full bg-radial-white-sellcard absolute"></div>
                     <div className="relative w-full h-[13.3125rem]">
-                        <div className="flex justify-end z-10">
+                        <div className="flex justify-end z-[100]">
                             <button
                                 className="relative min-h-[24px] right-[5%] inset-y-5 z-50"
                                 onClick={() => handleToggleFavorie()}>
@@ -146,11 +145,11 @@ export const SellCard = ({ favorie = false, className }: Props) => {
                     onMouseLeave={() => handleVariantChange("not-hovered")}
                 >
                     <div className="relative w-full h-[13.3125rem]">
-                        <div className="flex justify-end z-10">
+                        <div className="flex justify-end z-[100]">
                             <button
                                 className="relative min-h-[24px] right-[5%] inset-y-5 z-50"
                                 onClick={() => handleToggleFavorie()}>
-                                <HeartIcon filled={isFavorie} className="z-[100]" />
+                                <HeartIcon filled={isFavorie} className="z-[100]"/>
                             </button>
                         </div>
                         <Link to="/product">

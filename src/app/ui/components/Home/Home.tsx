@@ -12,6 +12,7 @@ import React, { useState, useEffect } from 'react';
 import { Carousel } from "../Slider/Carousel";
 import Link from "next/link";
 import { useWindowDimensions } from "@/app/WindowDimension";
+import clsx from "clsx";
 
 
 export default function Home() {
@@ -47,20 +48,43 @@ export default function Home() {
 
 
     const [isSection, setIsInSection] = useState(false);
+    const [isFreshSection, setIsInFreshSection] = useState(false);
+    const [isSkornennSection, setIsSkornennSection] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
 
             const section = document.getElementById("product-section-one");
+            const freshSection = document.getElementById("fresh-section");
+            const skornennSection = document.getElementById("skornenn-section")
+            const windowHeight = window.innerHeight;
 
             if (section) {
                 const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
 
                 if (sectionTop <= windowHeight / 2) {
                     setIsInSection(true);
                 } else {
                     setIsInSection(false);
+                }
+            }
+
+            if (freshSection) {
+                const freshSectionTop = freshSection.getBoundingClientRect().top;
+
+                if (freshSectionTop <= windowHeight / 2) {
+                    setIsInFreshSection(true);
+                } else {
+                    setIsInFreshSection(false);
+                }
+            }
+            if (skornennSection) {
+                const skornennSectionTop = skornennSection.getBoundingClientRect().top;
+                
+                if (skornennSectionTop <= windowHeight / 2) {
+                    setIsSkornennSection(true)
+                } else {
+                    setIsSkornennSection(false)
                 }
             }
         };
@@ -73,7 +97,12 @@ export default function Home() {
 
     return (
         <main className="overflow-x-hidden">
-            <Header variant="logo" />
+            {
+                isSection ? 
+                <Header variant="logo"/>
+                :
+                <Header variant="no-logo"/>
+            }
             <div className="relative -z-[3] h-screen w-screen mb-[1rem] overflow-y-scroll">
                 <div className="h-screen w-full -z-[1] ">
                     <div className="sticky">
@@ -98,7 +127,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="absolute z-10 inset-x-0  bottom-[30%] flex flex-col items-center w-full">
-                    <SkornennLogo className="w-full mb-[5rem] h-[clamp(5rem, 2.3787rem + 11.6503vw, 12.86394rem)]" />
+                    <SkornennLogo className="w-full mb-[5rem] h-[clamp(5rem, 2.3787rem + 11.6503vw, 12.86394rem)] animate-logo-home" />
                     {/* <Button
                         variant="primary"
                     >
@@ -122,7 +151,7 @@ export default function Home() {
                     </div> */}
                 </div>
             </div>
-            <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px]"
+            <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px] shadow-home-products-white"
             >
                 <Typo
                 variant="h1"
@@ -165,40 +194,57 @@ export default function Home() {
                     className="w-full shadow-vector-shadow "
                 />
             </div>
-            <div className="sticky w-full h-full ">
+            <div className="sticky w-full h-full" id="skornenn-section">
                 <section className="relative w-full h-fit py-[11.25rem] px-[6.25rem] max-md:px-[1.25rem]">
-
-                    <div className="w-[38.8rem] h-fit flex flex-col mr-auto max-md:w-full">
+                    <div className="w-[38.8rem] h-fit flex flex-col mr-auto max-md:w-full"
+                            >
                         <Typo
                             variant="h1"
                             font="noto"
-                            className="text-white"
+                            className={clsx(
+                                isSkornennSection ?
+                                "text-white show-section-title"
+                                :
+                                "text-white opacity-0"
+                            )}
                         >
                             Skornenn
                         </Typo>
-                        <Typo
-                            variant="p"
-                            font="noto"
-                            className="mt-[2.5rem] text-white"
-                        >
-                            Au cœur de la Bretagne, terre de légendes et de traditions, la distillerie Skornenn se distingue par son engagement à produire des cidres d'exception. Fondée par des passionnés du terroir breton, Skornenn allie savoir-faire ancestral et innovation moderne pour offrir une gamme de cidres doux et parfumés, disponibles avec et sans alcool, en canette et en bouteille.
-                        </Typo>
-                        <Typo
-                            variant="p"
-                            font="noto"
-                            className="mt-[2.5rem] text-white">
-                            Les vergers de Skornenn, situés dans les vallons verdoyants de la Bretagne, bénéficient d'un climat tempéré idéal pour la culture des pommes à cidre. Chaque pomme est sélectionnée pour sa qualité et son goût unique, garantissant ainsi un cidre authentique et savoureux.
-                        </Typo>
-                        <Typo
-                            variant="p"
-                            font="noto"
-                            className="mt-[2.5rem] text-white">
+                        <div className={clsx(
+                            isSkornennSection ? 
+                            "left-right-anim"
+                            : 
+                            "opacity-0 -translate-x-[150%]"
+                        )}>
+                            <Typo
+                                variant="p"
+                                font="noto"
+                                className="mt-[2.5rem] text-white"
+                            >
+                                Au cœur de la Bretagne, terre de légendes et de traditions, la distillerie Skornenn se distingue par son engagement à produire des cidres d'exception. Fondée par des passionnés du terroir breton, Skornenn allie savoir-faire ancestral et innovation moderne pour offrir une gamme de cidres doux et parfumés, disponibles avec et sans alcool, en canette et en bouteille.
+                            </Typo>
+                            <Typo
+                                variant="p"
+                                font="noto"
+                                className="mt-[2.5rem] text-white">
+                                Les vergers de Skornenn, situés dans les vallons verdoyants de la Bretagne, bénéficient d'un climat tempéré idéal pour la culture des pommes à cidre. Chaque pomme est sélectionnée pour sa qualité et son goût unique, garantissant ainsi un cidre authentique et savoureux.
+                            </Typo>
+                            <Typo
+                                variant="p"
+                                font="noto"
+                                className="mt-[2.5rem] text-white">
 
-                            À Skornenn, la production du cidre est un véritable art. Les pommes, récoltées à la main, sont pressées selon des méthodes traditionnelles pour en extraire le meilleur jus. La fermentation est réalisée lentement, permettant de développer des arômes riches et complexes. Cette attention portée à chaque étape de la production assure un cidre doux et parfumé, reflet du terroir breton. (textes générés par Chat GPT)
-                        </Typo>
+                                À Skornenn, la production du cidre est un véritable art. Les pommes, récoltées à la main, sont pressées selon des méthodes traditionnelles pour en extraire le meilleur jus. La fermentation est réalisée lentement, permettant de développer des arômes riches et complexes. Cette attention portée à chaque étape de la production assure un cidre doux et parfumé, reflet du terroir breton. (textes générés par Chat GPT)
+                            </Typo>
+                        </div>
                         <Button
                             variant="primary"
-                            className="px-[5rem] mt-[3.16rem]"
+                            className={clsx(
+                                isSkornennSection ?
+                                "px-[5rem] mt-[3.16rem] animate-logo-home"
+                                :
+                                "px-[5rem] mt-[3.16rem]"
+                            )}
                         >
                             <Typo
                                 variant="h4"
@@ -213,23 +259,34 @@ export default function Home() {
                     <VectorIce className=""></VectorIce>
                 </div>
             </div>
-            <section className="relative w-full h-fit px-[clamp(1.25rem, -1.6667rem + 12.963vw, 10rem)] py-[7.5rem] bg-white z-20 flex justify-center items-center max-md:flex-col-reverse">
+            <section id="fresh-section" className="relative w-full h-fit px-[clamp(1.25rem, -1.6667rem + 12.963vw, 10rem)] py-[7.5rem] bg-white z-20 flex justify-center items-center max-md:flex-col-reverse">
                 <Image
                     src="/img/sellcard-background.webp"
                     alt="Arrière plan effet glace"
                     layout="fill"
-                    className="absolute w-full h-full opacity-50 "
+                    className="absolute w-full h-full opacity-50"
                 />
                 <div className="w-full h-full bg-radial-white-sellcard absolute inset-0 "></div>
                 <div className="max-w-[30rem] h-fit py-[5rem] px-[2.5rem] sticky ">
                     <Typo
                         variant="h2"
                         font="noto"
-                        className="mb-[2.5rem] w-full h-fit text-left text-primary"
+                        className={clsx(
+                            isFreshSection ? 
+                            "mb-[2.5rem] w-full h-fit text-left text-primary show-section-title"
+                            : 
+                            "mb-[2.5rem] w-full h-fit text-left text-primary opacity-0"
+                        )}
                     >
                         Un vent frais pour le cidre breton
                     </Typo>
-                    <div className="flex flex-col items-start justify-center gap-[1.5rem] w-full h-fit text-left text-gray">
+                    <div className={clsx(
+                        isFreshSection ? 
+                        "flex flex-col items-start justify-center gap-[1.5rem] w-full h-fit text-left text-gray left-right-anim"
+                        : 
+                        "flex flex-col items-start justify-center gap-[1.5rem] w-full h-fit text-left text-gray opacity-0"
+                        
+                        )}>
                         <Typo
                             variant="p"
                             font="noto"
@@ -261,7 +318,12 @@ export default function Home() {
                         src="/img/cidre-orange-product.webp"
                         alt="Canette de cidre à l'orange de la marque Skornenn"
                         fill
-                        className="w-full h-full mt-[5rem] mb-[2.5rem] mr-[5rem] object-contain object-center"
+                        className={clsx(
+                            isFreshSection ?
+                            "w-full h-full mt-[5rem] mb-[2.5rem] mr-[5rem] object-contain object-center right-left-anim"
+                            :
+                            "w-full h-full mt-[5rem] mb-[2.5rem] mr-[5rem] object-contain object-center -translate-x-[150%]"
+                        )}
                     />
                 </div>
             </section>
@@ -301,7 +363,7 @@ export default function Home() {
             <div className="grid grid-cols-2 grid-flow-row grid-rows-[repeat(auto,minmax(0,1fr))] auto-cols-auto gap-[1.25rem] p-[1.25rem] bg-white max-sm:grid-cols-1 max-sm:grid-rows-[repeat(auto,minmax(0,1fr))]">
             <div className="h-[50rem] relative">
                     <Image src="/img/cidre-orange-canette-placeholder.webp" alt="Canette de cidre parfumé à l'orange au milieu d'un environement glacier" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-sm:w-full max-md:inset-x-auto">
+                    <div className="absolute z-50 -inset-x-1/2 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] min-w-[33.1rem] max-md:px-[2.25rem] max-sm:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -318,7 +380,7 @@ export default function Home() {
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/cidre-parfume-canette-placeholder.webp" alt="Verre de jus de pomme avec un quartier de pomme" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
+                    <div className="absolute z-50 -inset-x-1/2 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] min-w-[33.1rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -352,7 +414,7 @@ export default function Home() {
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/cidre-nature-canette-placeholder.webp" alt="Canette de cidre nature enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
+                    <div className="absolute z-50 -inset-x-1/2 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] min-w-[33.1rem] max-md:px-[2.25rem] max-sm:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"
@@ -369,7 +431,7 @@ export default function Home() {
                 </div>
                 <div className="h-[50rem] relative">
                     <Image src="/img/pomme-neige-placeholder.webp" alt="Pomme enfoncée dans de la neige" layout="fill" className="brightness-75 w-full h-full object-cover object-center absolute inset-0 transition-all ease-in-out duration-150 delay-100 hover:brightness-50"/>
-                    <div className="absolute z-50 inset-x-1/3 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] max-md:px-[2.25rem] max-md:w-full max-md:inset-x-auto">
+                    <div className="absolute z-50 -inset-x-1/2 top-52 flex flex-col items-center justify-center text-center gap-[0.62rem] min-w-[33.1rem] max-md:px-[2.25rem] max-sm:w-full max-md:inset-x-auto">
                         <Typo
                         variant="h2"
                         font="noto"

@@ -22,21 +22,23 @@ export const Carousel = ({ className, images }: Props) => {
 
     return (
         <div className="relative w-screen h-[56.25rem] box-border mx-auto bg-white">
-            {images.map((image) => (
-            <div
-                key={image.id}
+            {
+                images.map((image) => (
+                <div
+                    key={image.id}
 
-                // if the image is the current image, show it
-                className={
-                    images[currentIndex].id === image.id ?
-                        'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_1.2s_both] z-[10] transition-all ease-in-out duration-200 delay-75'
-                        :
-                        `absolute inset-0 opacity-1 z-[${(image.id - 1 + images.length) % images.length}] brightness-25 transition-all ease-in-out duration-200 delay-75`
-                }
-            >
-                <img src={image.url} alt={image.title} className='w-full h-full object-cover' />
-            </div>
-            ))}
+                    // if the image is the current image, show it
+                    className={
+                        images[currentIndex].id === image.id ?
+                            'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_1.2s_both] z-[10] transition-all ease-in-out duration-200 delay-75'
+                            :
+                            `absolute inset-0 opacity-1 z-[${(image.id - 1 + images.length) % images.length}] brightness-25 transition-all ease-in-out duration-200 delay-75`
+                    }
+                >
+                    <img src={image.url} alt={image.title} className='w-full h-full object-cover' />
+                </div>
+                ))
+            }
 
             {/* Previous Button */}
             <Button variant="icon" onClick={prev} className='prev cursor-pointer absolute w-auto mt-[-22px] transition-[0.6s] duration-[ease] p-4 top-2/4 left-5 z-50'>

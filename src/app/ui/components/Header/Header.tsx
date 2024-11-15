@@ -20,7 +20,7 @@ export const Header = ({variant}:Props) => {
         return ( 
             <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] pt-[1rem] pb-[3rem] fixed z-50">
                 <SkornennLogo className="w-[10.93169rem] h-fit"></SkornennLogo>
-                <div className="flex gap-[0.62rem] items-center justify-between w-fit h-fit">
+                <div className="flex gap-[2.24rem] items-center justify-between w-fit h-fit">
                     <MagnifyGlassIcon></MagnifyGlassIcon>
                     <AccountIcon></AccountIcon>
                     <ShoppingCart></ShoppingCart>
@@ -30,12 +30,12 @@ export const Header = ({variant}:Props) => {
         );
         case "no-logo":
         return ( 
-            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] py-[1rem] fixed z-50">
-                <div className="flex gap-[0.62rem] items-center justify-between w-fit h-fit ml-auto">
-                    <MagnifyGlassIcon></MagnifyGlassIcon>
-                    <AccountIcon></AccountIcon>
-                    <ShoppingCart></ShoppingCart>
-                    <MenuBurgerIcon></MenuBurgerIcon>
+            <header className="w-full h-fit bg-transparent shadow-header-white-inner backdrop-blur-[2px] flex flex-row justify-between items-center px-[2.5rem] pt-[1rem] pb-[3rem] fixed z-50">
+                <div className="flex gap-[2.24rem] items-center justify-between w-fit h-fit ml-auto">
+                    <MagnifyGlassIcon className="top-bottom-anim delay-0"></MagnifyGlassIcon>
+                    <AccountIcon className="top-bottom-anim delay-75"></AccountIcon>
+                    <ShoppingCart className="top-bottom-anim delay-100"></ShoppingCart>
+                    <MenuBurgerIcon className="right-left-anim"></MenuBurgerIcon>
                 </div>
             </header>
         );
