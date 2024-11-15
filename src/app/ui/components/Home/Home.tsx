@@ -95,6 +95,7 @@ export default function Home() {
         }
     }, []);
 
+
     return (
         <main className="overflow-x-hidden">
             {
@@ -128,27 +129,6 @@ export default function Home() {
                 </div>
                 <div className="absolute z-10 inset-x-0  bottom-[30%] flex flex-col items-center w-full">
                     <SkornennLogo className="w-full mb-[5rem] h-[clamp(5rem, 2.3787rem + 11.6503vw, 12.86394rem)] animate-logo-home" />
-                    {/* <Button
-                        variant="primary"
-                    >
-                        <Typo
-                            variant="h4"
-                            color="white"
-                            font="noto"
-                        >
-                            Nos produits
-                        </Typo>
-                    </Button>
-                    <div className="mt-[2.5rem] text-center">
-                        <Typo
-                            variant="h4"
-                            color="white"
-                            font="noto"
-                            className="hero-after"
-                        >
-                            Continuez
-                        </Typo>
-                    </div> */}
                 </div>
             </div>
             <section className="bg-home-product-gradient sticky z-[15] w-full h-fit pt-[7.5rem] pb-[6.25rem] backdrop-blur-[2px] shadow-home-products-white"
@@ -159,27 +139,14 @@ export default function Home() {
                 className="text-gray title-section-before-after flex items-center justify-center gap-[1.88rem] text-center text-balance max-md:px-[1.25rem] max-sm:gap-[0.94rem]">
                     Les nouveautés
                 </Typo>
-                {
-                    width >= 901 ? 
-                    <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
-                        <SellCard></SellCard>
-                        <SellCard></SellCard>
-                        <SellCard></SellCard>
-                        <SellCard></SellCard>
-                        <SellCard></SellCard>
-                        <SellCard></SellCard>
-                    </div>
-                    : 
-                    <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
-                        <SellCard variant="mobile"/>
-                        <SellCard variant="mobile"/>
-                        <SellCard variant="mobile"/>
-                        <SellCard variant="mobile"/>
-                        <SellCard variant="mobile"/>
-                        <SellCard variant="mobile"/>
-                    </div>
-                }
-
+                <div className="grid grid-cols-3 grid-rows-2 gap-[2.5rem] my-[5.62rem] py-[5rem] px-[6.25rem] max-md:grid-cols-2 max-md:grid-rows-3 max-md:px-[0.62rem]" id="product-section-one">
+                        <SellCard variant="hovered"/>
+                        <SellCard variant="hovered"/>
+                        <SellCard variant="hovered"/>
+                        <SellCard variant="hovered"/>
+                        <SellCard variant="hovered"/>
+                        <SellCard variant="hovered"/>
+                </div>
                 <Link href="/">
                     <Typo
                     variant="p"

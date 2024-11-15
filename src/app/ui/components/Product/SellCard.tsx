@@ -44,8 +44,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
         case "hovered":
             return (
                 <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
-                    onMouseEnter={() => handleVariantChange("hovered")}
-                    onMouseLeave={() => handleVariantChange("not-hovered")}
+                onMouseLeave={() => handleVariantChange("not-hovered")}
                 >
                     <Image
                         src="/img/sellcard-background.webp"
@@ -142,7 +141,6 @@ export const SellCard = ({ favorie = false, className }: Props) => {
             return (
                 <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative rounded-[0.31rem] transition-all ease-in-out duration-800 delay-100 hover:cursor-pointer will-change-auto"
                     onMouseEnter={() => handleVariantChange("hovered")}
-                    onMouseLeave={() => handleVariantChange("not-hovered")}
                 >
                     <div className="relative w-full h-[13.3125rem]">
                         <div className="flex justify-end z-[100]">
