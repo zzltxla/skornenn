@@ -28,9 +28,9 @@ export const Carousel = ({ className, images }: Props) => {
                     // if the image is the current image, show it
                     className={
                         images[currentIndex].id === image.id ? 
-                        'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_2.5s_both] z-[5]' 
+                        'absolute inset-0 opacity-1 translate-x-[-100%] animate-[slideAnimation_1.5s_both] z-[10]' 
                         : 
-                        'absolute inset-0 opacity-1 z-[1] '
+                        `absolute inset-0 opacity-1 z-[${image.id - 1 + images.length}] `
                     }
                 >
                     <img src={image.url} alt={image.title} className='w-full h-full object-cover' />
@@ -53,9 +53,9 @@ export const Carousel = ({ className, images }: Props) => {
                         // highlight the dot that corresponds to the current photo
                         className={
                             images[currentIndex].id === image.id ? 
-                            'dot-active-after relative cursor-pointer h-[20px] w-[2.5rem] mx-[5px] bg-[#ccc] rounded-[3.75rem] inline-block transition-all duration-75 delay-[0.1s] z-[6]' 
+                            'dot-active-after relative cursor-pointer h-[20px] w-[2.5rem] mx-[5px] bg-[#ccc] rounded-[3.75rem] inline-block transition-all duration-75 delay-[0.1s] z-[12]' 
                             :
-                            'dot cursor-pointer h-[20px] w-[20px] mx-[5px] bg-[#ccc] rounded-[50%] inline-block transition-all duration-75 delay-[0.1s] z-[6]'
+                            'dot cursor-pointer h-[20px] w-[20px] mx-[5px] bg-[#ccc] rounded-[50%] inline-block transition-all duration-75 delay-[0.1s] z-[12]'
                         }
                         // when the user clicks on a dot, go to the corresponding photo
                         onClick={() => setCurrentIndex(images.indexOf(image))}

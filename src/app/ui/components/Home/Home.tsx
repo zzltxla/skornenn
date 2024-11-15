@@ -17,27 +17,27 @@ export default function Home() {
 
     const images = [ //images from the carousel (slide)
         {
-            id: 'p1',
+            id: '1',
             title: 'Canette de cidre parfumé à la fraise',
             url: '/img/canette-cidre-fraise.webp',
         },
         {
-            id: 'p2',
+            id: '2',
             title: 'Canette de cidre parfumé à la poire',
             url: '/img/canette-cidre-poire.webp',
         },
         {
-            id: 'p3',
+            id: '3',
             title: 'Canette de cidre parfumé au fruit de la passion',
             url: '/img/canette-cidre-passion.webp',
         },
         {
-            id: 'p4',
+            id: '4',
             title: "Canette de cidre parfumé à l'orange",
             url: '/img/canette-cidre-orange.webp',
         },
         {
-            id: 'p5',
+            id: '5',
             title: 'Bouteille de cidre parfumé',
             url: '/img/bouteille-cidre-parfume.png',
         },
