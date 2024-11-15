@@ -62,7 +62,7 @@
 }
 @keyframes rightLeft{
   from {
-    transform: translateX(150%);
+    transform: translateX(200%);
   } to {
     transform: translateX(0px);
   }
@@ -73,7 +73,7 @@
 }
 @keyframes leftRight{
   from {
-    transform: translateX(-150%);
+    transform: translateX(-200%);
   } to {
     transform: translateX(0px);
   }
@@ -102,7 +102,7 @@
     width: clamp(4.375rem, -4.125rem + 37.7778vw, 29.875rem);
     height: 0.0625rem;
     background-color: #6C839A;
-    animation: showLineFromLeft 0.89s ease-in 0.1s linear forwards;
+    animation: showLineFromLeft 0.89s ease-in 0.1s forwards;
   }
   &:after {
     content: "";
@@ -112,6 +112,22 @@
   }
 }
 
+.slide-right {
+  animation: slideRight 1.5s ease-in-out .2s both;
+}
+@keyframes slideRight {
+  to {
+    transform: translateX(100vw);
+  }
+}
+.slide-left {
+  animation: slideLeft 1.5s ease-in-out .2s both;
+}
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100vw);
+  }
+}
 @keyframes showLineFromLeft {
   from {  
 
@@ -120,8 +136,49 @@
   }
 }
 
+.-delay-1 {
+  animation-delay: .6s;
+
+}
+.-delay-2 {
+  animation-delay: .8s;
+
+}
+.-delay-3 {
+  animation-delay: 1s;
+
+}
+.-delay-4 {
+  animation-delay: 1.3s;
+}
+.-delay-5 {
+  animation-delay: 1.7s;
+}
+.-delay-6 {
+  animation-delay: 2s;
+
+}
+
+.sellcard-top-down-anim {
+  animation: topDownCard 3s cubic-bezier(.26,.53,.74,1.48) .5s backwards;
+}
+@keyframes topDownCard {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  } 
+  20% {
+    opacity: 1;
+    transform: translateY(0%);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 .show-section-title {
-  animation: showTitle 2.1s ease-in-out .1s forwards;
+  animation: showTitle 2.1s cubic-bezier(.26,.53,.74,1.48) .1s backwards;
 }
 @keyframes showTitle {
   from { 
@@ -178,7 +235,6 @@
 
 
 .link-before-after {
-
   &:before {
     content: "";
     width: 6.25rem;
@@ -202,7 +258,7 @@
     position: absolute;
     z-index: 55;
     inset: 0;
-    animation: toRight 0.5s 0.1s ease-in-out forwards;
+    animation: toRight 0.5s 0.1s ease-in-out backwards;
   }
 }
 

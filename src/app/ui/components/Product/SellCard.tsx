@@ -43,14 +43,14 @@ export const SellCard = ({ favorie = false, className }: Props) => {
     switch (variant) {
         case "hovered":
             return (
-                <article className="shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto"
+                <article className={clsx("shadow-sellcard-boxshadow-hover bg-radial-white-sellcard overflow-hidden relative transition-all ease-in-out duration-800 delay-100 rounded-[0.31rem] hover:cursor-pointer will-change-auto", className)}
                 onMouseLeave={() => handleVariantChange("not-hovered")}
                 >
                     <Image
                         src="/img/sellcard-background.webp"
                         alt="Arrière plan effet glace"
                         layout="fill"
-                        className="absolute w-full h-full fadein-background-sellcard opacity-0"
+                        className="absolute w-full h-full fadein-background-sellcard opacity-0 max-sm:opacity-50"
                     />
                     <div className="w-full h-full bg-radial-white-sellcard absolute"></div>
                     <div className="relative w-full h-[13.3125rem]">
@@ -139,7 +139,7 @@ export const SellCard = ({ favorie = false, className }: Props) => {
             );
         case "not-hovered":
             return (
-                <article className="shadow-sellcard-boxshadow bg-white overflow-hidden relative rounded-[0.31rem] transition-all ease-in-out duration-800 delay-100 hover:cursor-pointer will-change-auto"
+                <article className={clsx("shadow-sellcard-boxshadow bg-white overflow-hidden relative rounded-[0.31rem] transition-all ease-in-out duration-800 delay-100 hover:cursor-pointer will-change-auto", className)}
                     onMouseEnter={() => handleVariantChange("hovered")}
                 >
                     <div className="relative w-full h-[13.3125rem]">
